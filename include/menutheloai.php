@@ -6,7 +6,7 @@ $getLoaiTin = $obj->getLoaiTin($idTL);
 ?>
 
 <div class="navbar navbar-expand-xl navbar-light bg-faded container">
-  <a class="navbar-brand tieude" href="congnghe.html">
+  <a class="navbar-brand tieude" href="index.php?p=theloai&idTL=<?php echo $value['idTL']?>">
     <?php 
       foreach ($data as $value) {
         echo $value['TenTL'];

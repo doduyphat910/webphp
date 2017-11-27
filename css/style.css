@@ -15,3 +15,26 @@
 .tieude{font-weight:bold;text-decoration:none;color:#000;}
 .mota{color:#333; font-size:15px;}
 .theloai{color:#000; font-weight:bold; font-size:20px;}
+.paging{
+  width: 420px;
+  height: 30px;
+  margin-left: 250px;
+  margin-bottom: 10px;
+  margin-top: 1px;
+  text-align: center;
+}
+.paging a{
+  line-height: 10px;
+  color: black;
+  margin-left: 5px;
+  padding: 7px;
+  background-color:#BDBDBD; 
+  border-radius: 5px;
+}
+.paging a:hover{
+  background-color: #2E9AFE;
+}
+
+
+
+

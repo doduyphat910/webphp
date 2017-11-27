@@ -1,15 +1,7 @@
 <?php
-if(isset($_GET['trang'])){
-  $page = $_GET['trang'];
-}
-else{
-  $page = 1;
-}
-$newsinpage = 8;
-$from = ($page-1)*$newsinpage;
-$idTL = $_GET['idTL'];
+$key = $_GET['timkiem'];
 $obj = new tintuc();
-$getNewsFollowCategorys_paging = $obj->getNewsFollowCategorys_paging($idTL, $from, $newsinpage);
+$search = $obj->search($key);
 ?>
 <script type="text/javascript" src="js/jquery-3.2.1.min.js"></script>
 <script type="text/javascript" src="js/bootstrap.js"></script>
@@ -17,29 +9,13 @@ $getNewsFollowCategorys_paging = $obj->getNewsFollowCategorys_paging($idTL, $fro
 <link rel="stylesheet" type="text/css" href="css/style.css"/>
 
 <div class="container">  
-
-    <!--BreadCrumb-->
-  <?php
-  $breadCrumbTL = $obj->breadCrumbTL($idTL);
-  ?>
-  <hr>
-<!-- with images -->  
-<?php
-foreach ($breadCrumbTL as $key => $value) {
-?>
-<nav class="breadcrumb">
-  <a class="breadcrumb-item" href="index.php">Trang chủ</a>
-  <span class="breadcrumb-item active"><?php echo $value['TenTL']; ?></span>
-</nav>
-<?php
-}
-?>
   <!--Content-->
+
   <div class = "row">
     <div class = "col-lg-8">
       <hr />
       <?php
-      foreach ($getNewsFollowCategorys_paging as $key => $value) {
+      foreach ($search as $key => $value) {
         ?>
         <div class = "row hinhgiua">
           <div class = "col-lg-4 thehinhgiua">
@@ -60,18 +36,4 @@ foreach ($breadCrumbTL as $key => $value) {
     </div>
     <div class = "col-lg-4" style = "background-color: green">Ads</div>
   </div>
-</div>
-
-<div class="paging">
-<?php
-$getNewsFollowCategorys = $obj->getNewsFollowCategorys($idTL);
-$count = count($getNewsFollowCategorys);
-$totalPage = ceil($count/$newsinpage);
-for ($i=1; $i <= $totalPage; $i++) { 
-?>
-  <a <?php if($page == $i){ echo "style='background-color: #2E9AFE'"; }?> 
-    href="index.php?p=theloai&idTL=<?php echo $idTL; ?>&trang=<?php echo $i; ?>"><?php echo $i; ?></a>
-<?php
-}
-?>
 </div>
