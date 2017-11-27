@@ -16,7 +16,7 @@ $get3NewsColumnLefts = $obj ->get3NewsColumnLefts();
   ?>
    <div class = "row hinhgiua">
      <div class = "col-lg-4 thehinhgiua">
-       <a href="iphonex.html"><img src="images/<?php echo $news['UrlHinh']; ?>" class="img-fluid"/></a>
+       <a href="iphonex.html"><img src="images/<?php echo $news['UrlHinh']; ?>" class="img-fluid card-img"/></a>
      </div>
      <div class = "col-lg-8">
        <a href="index.php?p=tin&idTinTuc=<?php echo $news['idTinTuc']; ?>" class="nav-link">
@@ -47,7 +47,7 @@ foreach ($get3HotNews as $key => $value) {
 ?>
 <div class = "row hinhgiua">
  <div class = "col-lg-4 thehinhgiua">
-   <a href="index.php?p=tin&idTinTuc=<?php echo $value['idTinTuc']; ?>"><img src="images/<?php echo $value['UrlHinh']; ?>" class="img-fluid" /></a>
+   <a href="index.php?p=tin&idTinTuc=<?php echo $value['idTinTuc']; ?>"><img src="images/<?php echo $value['UrlHinh']; ?>" class="img-fluid card-img" /></a>
  </div>
  <div class = "col-lg-8">
    <a href="index.php?p=tin&idTinTuc=<?php echo $value['idTinTuc']; ?>" class="nav-link">

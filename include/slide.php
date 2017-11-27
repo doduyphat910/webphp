@@ -4,7 +4,7 @@ $getImagesSliderActive= $obj -> getImagesSliderActive();
 $getImagesSliderItem = $obj->getImagesSliderItem();
 ?>
 
-<div class="featured container">
+<div class="container">
  <div class="row">
   <div class="col-sm-8" >
     <!-- Carousel -->
@@ -78,7 +78,7 @@ $getImagesSliderItem = $obj->getImagesSliderItem();
       <div class="row">
         <div class="col-md-12">
           <a href="index.php?p=tin&idTinTuc=<?php echo $value['idTinTuc']; ?>" class="nav-link">
-            <img src="images/<?php echo $value['UrlHinh'];?>" class="card-img-top"><br>
+            <img src="images/<?php echo $value['UrlHinh'];?>" class="img-fluid card-img"><br>
             <p class="tieude"><?php echo $value['TieuDe']; ?></p>
           </a>
         </div>

@@ -79,7 +79,7 @@ $get2NewsSliderItem= $obj -> get2NewsSliderItem($idTL);
       <div class="row">
         <div class="col-md-12">
           <a href="index.php?p=tin&idTinTuc=<?php echo $value['idTinTuc']; ?>" class="nav-link">
-            <img src="images/<?php echo $value['UrlHinh'];?>" class="card-img-top"><br>
+            <img src="images/<?php echo $value['UrlHinh'];?>" class="card-img"><br>
             <p class="tieude"><?php echo $value['TieuDe']; ?></p>
           </a>
         </div>

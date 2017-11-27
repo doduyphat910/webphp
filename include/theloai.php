@@ -19,7 +19,7 @@ $getNewsFollowCategorys = $obj->getNewsFollowCategorys($idTL);
         ?>
         <div class = "row hinhgiua">
           <div class = "col-lg-4 thehinhgiua">
-            <a href="iphonex.html"><img src="images/<?php echo $value['UrlHinh']; ?>" class="img-fluid"/></a>
+            <a href="iphonex.html"><img src="images/<?php echo $value['UrlHinh']; ?>" class="img-fluid card-img"/></a>
           </div>
           <div class = "col-lg-8">
             <a href="index.php?p=tin&idTinTuc=<?php echo $value['idTinTuc']; ?>" class="nav-link">

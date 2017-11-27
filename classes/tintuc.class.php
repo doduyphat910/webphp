@@ -57,27 +57,5 @@ class tintuc extends Db {
 		$sql = "Select * FROM loaitin INNER JOIN tintuc WHERE idTL like :idTL AND loaitin.idLT = tintuc.idLT ORDER BY tintuc.idTinTuc DESC LIMIT 4,2";
 		return $this->query($sql, $arr);
 	}
-
-	/*get by type*/
-	function get1NewsByTypeSliderActive($idLT){
-		$arr = array(":idLT" => "$idLT");
-		$sql = "SELECT * FROM tintuc WHERE idLT LIKE :idLT ORDER BY idTinTuc DESC LIMIT 0,1";
-		return $this->query($sql, $arr);
-	}
-	function get2NewsByTypeSliderItems($idLT){
-		$arr = array(":idLT" => "$idLT");
-		$sql = "SELECT * FROM tintuc WHERE idLT LIKE :idLT ORDER BY idTinTuc DESC LIMIT 1,2";
-		return $this->query($sql, $arr);
-	}
-	function get2NewsByType($idLT){
-		$arr = array(":idLT" => "$idLT");
-		$sql = "SELECT * FROM tintuc WHERE idLT LIKE :idLT ORDER BY idTinTuc DESC LIMIT 4,2";
-		return $this->query($sql, $arr);
-	}
-	function getNewsByType($idLT){
-		$arr = array(":idLT" => "$idLT");
-		$sql = "SELECT * FROM tintuc WHERE idLT LIKE :idLT ORDER BY idTinTuc DESC LIMIT 6,10";
-		return $this->query($sql, $arr);
-	}
 }
 ?>

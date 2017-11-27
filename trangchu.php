@@ -3,6 +3,7 @@
  <link rel="stylesheet" type="text/css" href="css/bootstrap.css"/>
  <link rel="stylesheet" type="text/css" href="css/style.css"/>
 
+<body style="background-color:whitesmoke">
  <?php
 include("include/top.php");
 include("include/banner.php");
@@ -11,3 +12,4 @@ include("include/slide.php");
 include("include/content.php");
 include("include/footer.php");
  ?>
+</body>

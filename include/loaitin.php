@@ -1,7 +1,7 @@
 <?php
-$idTL = $_GET['idLT'];
+$idTL = $_GET['idTL'];
 $obj = new tintuc();
-$getNewsByType = $obj->getNewsByType($idLT);
+$getNewsFollowCategorys = $obj->getNewsFollowCategorys($idTL);
 ?>
 <script type="text/javascript" src="js/jquery-3.2.1.min.js"></script>
 <script type="text/javascript" src="js/bootstrap.js"></script>
@@ -15,11 +15,11 @@ $getNewsByType = $obj->getNewsByType($idLT);
     <div class = "col-lg-8">
       <hr />
       <?php
-      foreach ($getNewsByType as $key => $value) {
+      foreach ($getNewsFollowCategorys as $key => $value) {
         ?>
         <div class = "row hinhgiua">
           <div class = "col-lg-4 thehinhgiua">
-            <a href="iphonex.html"><img src="images/<?php echo $value['UrlHinh']; ?>" class="img-fluid"/></a>
+            <a href="#"><img src="images/<?php echo $value['UrlHinh']; ?>" class="img-fluid card-img"/></a>
           </div>
           <div class = "col-lg-8">
             <a href="index.php?p=tin&idTinTuc=<?php echo $value['idTinTuc']; ?>" class="nav-link">

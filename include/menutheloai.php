@@ -23,7 +23,7 @@ $getLoaiTin = $obj->getLoaiTin($idTL);
     foreach ($getLoaiTin as $key => $value) {
     ?>
      <li class="nav-item">
-       <a class="nav-link active" href="index.php?p=loaitin&idLT=<?php echo $value['idLT'];?>&idTL=<?php echo $value['idTL'];?>"><?php echo $value['TenLT']?></a>
+       <a class="nav-link active" href="#"><?php echo $value['TenLT']?></a>
      </li>
      <?php
       }
