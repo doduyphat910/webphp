@@ -1,6 +1,4 @@
 <?php
-include "library/dbCon.php";
-include "classes/autoload.php";
 $obj = new tintuc();
 ?>
 

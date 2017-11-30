@@ -37,9 +37,12 @@ class tintuc extends Db {
 	function get3HotNews(){
 		return $this->query("Select * From tintuc ORDER BY SoLanXem DESC limit 0,4");
 	}
+
+
+	/*Category*/
 	function getNewsFollowCategorys($idTL){
 		$arr = array(":idTL" => "$idTL");
-		$sql = "Select * FROM loaitin INNER JOIN tintuc WHERE idTL like :idTL AND loaitin.idLT = tintuc.idLT ORDER BY tintuc.idTinTuc DESC LIMIT 6,10";
+		$sql = "Select * FROM loaitin INNER JOIN tintuc WHERE idTL like :idTL AND loaitin.idLT = tintuc.idLT ORDER BY tintuc.idTinTuc DESC LIMIT 0,78";
 		return $this->query($sql, $arr);
 	}
 	function get1NewsSliderActive($idTL){
@@ -57,6 +60,7 @@ class tintuc extends Db {
 		$sql = "Select * FROM loaitin INNER JOIN tintuc WHERE idTL like :idTL AND loaitin.idLT = tintuc.idLT ORDER BY tintuc.idTinTuc DESC LIMIT 4,2";
 		return $this->query($sql, $arr);
 	}
+
 
 	/*get by type*/
 	function get1NewsByTypeSliderActive($idLT){
@@ -76,8 +80,120 @@ class tintuc extends Db {
 	}
 	function getNewsByType($idLT){
 		$arr = array(":idLT" => "$idLT");
-		$sql = "SELECT * FROM tintuc WHERE idLT LIKE :idLT ORDER BY idTinTuc DESC LIMIT 6,10";
+		$sql = "SELECT * FROM tintuc WHERE idLT LIKE :idLT ORDER BY idTinTuc DESC LIMIT 0,78";
 		return $this->query($sql, $arr);
+	}
+
+
+	/*see more news*/
+	function seeMoreNews(){
+		return $this->query("SELECT * FROM tintuc ORDER BY idTinTuc DESC LIMIT 0,78");
+	}
+
+
+	/*see more hot news*/
+	function seeMoreHotNews(){
+		return $this->query("SELECT * FROM tintuc ORDER BY SoLanXem DESC LIMIT 0,78");
+	}
+
+
+	/*paging*/
+	function seeMoreNews_paging($from, $newsinpage){
+		return $this->query("SELECT * FROM tintuc ORDER BY idTinTuc DESC LIMIT $from, $newsinpage");
+	}
+	function seeMoreHotNews_paging($from, $newsinpage){
+		return $this->query("SELECT * FROM tintuc ORDER BY SoLanXem DESC LIMIT $from, $newsinpage");
+	}
+	function getNewsFollowCategorys_paging($idTL, $from, $newsinpage){
+		$arr = array(":idTL" => "$idTL");
+		$sql = "SELECT * FROM loaitin INNER JOIN tintuc WHERE idTL like :idTL AND loaitin.idLT = tintuc.idLT ORDER BY tintuc.idTinTuc DESC LIMIT $from, $newsinpage";
+		return $this->query($sql, $arr);
+	}
+	function getNewsByType_paging($idLT, $from, $newsinpage){
+		$arr = array(":idLT" => "$idLT");
+		$sql = "SELECT * FROM tintuc WHERE idLT LIKE :idLT ORDER BY idTinTuc DESC LIMIT 
+				$from, $newsinpage";
+		return $this->query($sql, $arr);
+	}
+
+
+	/*breadCrumb*/
+	function breadCrumbLT ($idLT){
+		$arr = array(":idLT"=>"$idLT");
+		$sql = "SELECT * FROM loaitin, theloai WHERE loaitin.idTL=theloai.idTL AND idLT = $idLT";
+		return $this->query($sql, $arr);
+	}
+	function breadCrumbTL ($idTL){
+		$arr= array(":idTL"=>"$idTL"); 
+		$sql = "SELECT * FROM theloai WHERE idTL like :idTL";
+		return $this->query($sql, $arr);
+	}
+
+
+	/*Search*/
+	function search($TieuDe){
+		$arr = array(":TieuDe"=>"%$TieuDe%");
+		$sql = "SELECT * FROM tintuc WHERE TieuDe like :TieuDe ORDER BY SoLanXem DESC LIMIT 0, 78";
+		return $this->query($sql, $arr);
+	}
+
+	/*Login*/
+	function Login ($un, $pw){
+		$arr = array(":UN"=>"$un", ":PW"=>"$pw" );
+		$sql = "SELECT * FROM User WHERE UserName like :UN AND Password like :PW";
+		return $this->query($sql, $arr);
+	}
+
+	/* Register */
+	/*function Register ($hoten, $username, $pw, $dc, $email, $dt, $gt, $nsinh, $ndk, $idGroup){
+		$arr = array(":hoten"=>"$hoten", ":username"=>"$username", ":pw"=>"$pw", ":dc"=>"$dc", 
+		":email"=> "$email", ":dt"=>"$dt", ":gt"=>"$gt", ":nsinh"=>"$nsinh", ":ndk"=>"$ndk",
+		":idGroup"=>"$idGroup");
+		$sql = "INSERT INTO user VALUES (null, ':hoten', ':username', ':pw', ':dc', ':email', ':dt', 
+		':gt', ':nsinh', ':ndk', ':idGroup')";
+		return $this->query($sql, $arr);
+	}*/
+	function Register ($hoten, $username, $pw, $dc, $email, $dt, $gt, $nsinh, $ndk, $idGroup){
+		return $this->query( "INSERT INTO user VALUES (null, '$hoten', '$username', '$pw', '$dc', 
+			'$email', '$dt', '$gt', '$nsinh', '$ndk', '$idGroup')");
+	}
+
+	/* Relations News */
+
+	function RelationsNews ($idLT){
+		$arr = array(":idLT"=>"$idLT");
+		$sql = "SELECT * FROM tintuc WHERE idLT LIKE :idLT ORDER BY RAND() LIMIT 0,4 ";
+		return $this->query($sql, $arr);
+	}
+
+	/*Comment*/
+
+	function addComment($idTinTuc, $idUser, $NoiDung, $NgayDang, $AnHien){
+		$arr = array(":idTinTuc"=>"$idTinTuc", ":idUser"=>"$idUser",":NoiDung"=>"$NoiDung", 
+		":NgayDang"=>"$NgayDang", ":AnHien"=>"$AnHien" );
+		$sql = "INSERT INTO binhluan (idTinTuc, idUser, NoiDung, NgayDang, AnHien) VALUES (:idTinTuc, :idUser, :NoiDung, :NgayDang, :AnHien)";
+		return $this->query($sql, $arr);	
+	}
+
+	function showComment($idTinTuc){
+		$arr = array(":idTinTuc"=>"$idTinTuc");
+		$sql = "SELECT * FROM binhluan INNER JOIN user WHERE idTinTuc LIKE :idTinTuc AND AnHien = 1";
+		return $this->query($sql, $arr); 
+	}
+
+	/*Reply Comment*/ 
+
+	function addReply($idBL, $idUser, $NoiDung, $NgayDang, $AnHien){
+		$arr = array(":idBL"=>"$idBL", ":idUser"=>"$idUser",":NoiDung"=>"$NoiDung", 
+		":NgayDang"=>"$NgayDang", ":AnHien"=>"$AnHien" );
+		$sql = "INSERT INTO tlbinhluan (idBL, idUser, NoiDung, NgayDang, AnHien) VALUES (:idBL, :idUser, :NoiDung, :NgayDang, :AnHien)";
+		return $this->query($sql, $arr);
+	}
+
+	function showReply($idBL){
+		$arr = array(":idBL"=>"$idBL");
+		$sql = "SELECT * FROM tlbinhluan INNER JOIN user WHERE idBL LIKE :idBL AND AnHien = 1";
+		return $this->query($sql, $arr); 
 	}
 }
 ?>

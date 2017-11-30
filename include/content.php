@@ -16,7 +16,8 @@ $get3NewsColumnLefts = $obj ->get3NewsColumnLefts();
   ?>
    <div class = "row hinhgiua">
      <div class = "col-lg-4 thehinhgiua">
-       <a href="iphonex.html"><img src="images/<?php echo $news['UrlHinh']; ?>" class="img-fluid"/></a>
+       <a href="index.php?p=tin&idTinTuc=<?php echo $news['idTinTuc']; ?>">
+        <img src="images/<?php echo $news['UrlHinh']; ?>" class="img-fluid"/></a>
      </div>
      <div class = "col-lg-8">
        <a href="index.php?p=tin&idTinTuc=<?php echo $news['idTinTuc']; ?>" class="nav-link">
@@ -33,7 +34,7 @@ $get3NewsColumnLefts = $obj ->get3NewsColumnLefts();
 
 
 <div class="xemthem float-sm-right">
-  <a href="#">
+  <a href="index.php?p=xemthem1">
     <button type="button" class="btn btn-info">Xem Thêm</button>
   </a>  
 </div>
@@ -63,10 +64,8 @@ foreach ($get3HotNews as $key => $value) {
 
 
 
-
-
 <div class="xemthem float-sm-right">
-  <a href="#">
+  <a href="index.php?p=xemthem2">
     <button type="button" class="btn btn-info">Xem Thêm</button>
   </a>  
 </div>
@@ -75,7 +74,19 @@ foreach ($get3HotNews as $key => $value) {
 
 
 </div>
-<div class = "col-lg-4" style = "background-color: green">Ads</div>
+
+<!--Adv-->
+<div class = "col-lg-4" >
+
+  <img src="images/quangcao/mua-laptop-xin-nhan-dong-ho-cool-large.gif" class="img-fluid card" />
+  <img src="images/quangcao/mua-laptop-xin-nhan-dong-ho-cool-large.gif" class="img-fluid card" />
+  <img src="images/quangcao/mua-laptop-xin-nhan-dong-ho-cool-large.gif" class="img-fluid card" />
+  <img src="images/quangcao/poster-quang-cao-khuyen-mai-123456789jpg.jpg" class="img-fluid card" />
+
+</div>
+
+<!--Adv-->
+
 </div>
 
 </div>
