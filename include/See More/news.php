@@ -9,6 +9,8 @@ $newsinpage = 8;
 $from = ($page -1)*$newsinpage;
 $obj = new tintuc();
 $seeMoreNews_paging = $obj->seeMoreNews_paging($from ,$newsinpage);
+$idVT = 2;
+$showQuangCaoXemThem1 = $obj->showQuangCaoXemThem1($idVT);
 ?>
 <script type="text/javascript" src="js/jquery-3.2.1.min.js"></script>
 <script type="text/javascript" src="js/bootstrap.js"></script>
@@ -41,7 +43,25 @@ $seeMoreNews_paging = $obj->seeMoreNews_paging($from ,$newsinpage);
       }
       ?>
     </div>
-    <div class = "col-lg-4" style = "background-color: green">Ads</div>
+    <div class="col-lg-4" id="quangcao">
+      <?php
+      foreach ($showQuangCaoXemThem1 as $key => $value) {
+      ?>
+        <a href="<?php echo $value['Url']; ?>">
+        <img src="images/quangcao/Xem them 1/<?php echo $value['UrlHinh']; ?>" class="img-fluid card" />
+        </a>
+      <?php
+      }
+      ?>
+    </div>
+    <style type="text/css">
+      #quangcao img{
+        width: 350px;
+        height: 250px;
+        margin-top: 15px;
+      }
+    </style>
+
   </div>
 </div>
 

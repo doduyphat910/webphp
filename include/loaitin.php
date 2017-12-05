@@ -11,6 +11,9 @@ $idTL = $_GET['idTL'];
 $idLT = $_GET['idLT'];
 $obj = new tintuc();
 $getNewsByType_paging = $obj->getNewsByType_paging($idLT, $from, $newsinpage);
+
+$idVT=5;
+$showQuangCaoLoaiTin = $obj->showQuangCaoLoaiTin($idVT);
 ?>
 <script type="text/javascript" src="js/jquery-3.2.1.min.js"></script>
 <script type="text/javascript" src="js/bootstrap.js"></script>
@@ -61,14 +64,26 @@ foreach ($breadCrumbLT as $key => $value) {
       ?>
     </div>
      <!--Adv-->
-     <div class = "col-lg-4">
-      <img src="images/quangcao/mua-laptop-xin-nhan-dong-ho-cool-large.gif" class="img-fluid card" />
-      <img src="images/quangcao/mua-laptop-xin-nhan-dong-ho-cool-large.gif" class="img-fluid card" />
-      <img src="images/quangcao/mua-laptop-xin-nhan-dong-ho-cool-large.gif" class="img-fluid card" />
-      <img src="images/quangcao/mua-laptop-xin-nhan-dong-ho-cool-large.gif" class="img-fluid card" />  
-    </div>
-
+     <div class = "col-lg-4" id="quangcao">
+      <?php
+      foreach ($showQuangCaoLoaiTin as $key => $value) {
+      ?>
+      <a href="<?php echo $value['Url']; ?>">
+        <img src="images/quangcao/Loai tin/<?php echo $value['UrlHinh']; ?>" 
+        class="img-fluid card" />
+      </a>
+      <?php
+      }
+      ?>
+      </div>
   <!--Adv-->
+  <style type="text/css">
+      #quangcao img{
+        width: 350px;
+        height: 250px;
+        margin-top: 15px;
+      }
+    </style>
   </div>
 </div>
 

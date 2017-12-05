@@ -10,7 +10,8 @@ foreach ($get1News as $key => $value) {
 $RelationsNews = $obj->RelationsNews($idLT);
 $showComment = $obj->showComment($idTinTuc);
 
-
+$idVT=6;
+$showQuangCaoTin = $obj->showQuangCaoTin($idVT);
 ?>
 
 <?php
@@ -129,7 +130,7 @@ foreach ($get1News as $key => $value) {
             <?php
             foreach ($showComment as $key => $value) {
               $idBL = $value['idBL'];
-              $showReply = $obj->showReply($idBL)
+              $showReply = $obj->showReply($idBL);
               ?>
               <li class="clearfix">
                 <div>
@@ -189,15 +190,25 @@ foreach ($get1News as $key => $value) {
   </div>    
 </div>
 <!--qc-->
-          <dir class="col-md-4">
-            <img src="images/quangcao/mua-laptop-xin-nhan-dong-ho-cool-large.gif" class="img-fluid card" />
-            <img src="images/quangcao/mua-laptop-xin-nhan-dong-ho-cool-large.gif" class="img-fluid card" />
-            <img src="images/quangcao/mua-laptop-xin-nhan-dong-ho-cool-large.gif" class="img-fluid card" />
-            <img src="images/quangcao/mua-laptop-xin-nhan-dong-ho-cool-large.gif" class="img-fluid card" />
-            <img src="images/quangcao/mua-laptop-xin-nhan-dong-ho-cool-large.gif" class="img-fluid card" />
-            <img src="images/quangcao/mua-laptop-xin-nhan-dong-ho-cool-large.gif" class="img-fluid card" />
-            <img src="images/quangcao/mua-laptop-xin-nhan-dong-ho-cool-large.gif" class="img-fluid card" />            
-          </dir>
+      <div class="col-lg-4" id="quangcao">
+        <?php 
+        foreach ($showQuangCaoTin as $key => $value) {
+        ?>
+        <a href="<?php echo $value['Url']; ?>">
+          <img src="images/quangcao/Tin/<?php echo $value['UrlHinh']; ?>" 
+          class="img-fluid card" /> 
+        </a>
+        <?php
+        }
+        ?>
+      </div>
+      <style type="text/css">
+      #quangcao img{
+        width: 350px;
+        height: 250px;
+        margin-top: 15px;
+      }
+    </style>
 </div>
 </div>
 </div>
