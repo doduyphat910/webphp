@@ -2,6 +2,8 @@
 <?php
 $obj = new tintuc();
 $get3NewsColumnLefts = $obj ->get3NewsColumnLefts();
+$idVT = 1;
+$showQuangCaoTrangChu = $obj->showQuangCaoTrangChu($idVT);
 ?>
 <div class="container">   
 <!--Content-->
@@ -74,7 +76,29 @@ foreach ($get3HotNews as $key => $value) {
 
 
 </div>
-<div class = "col-lg-4" style = "background-color: green">Ads</div>
+
+<!--Adv-->
+<div class = "col-lg-4" id="quangcao" >
+  <?php
+  foreach ($showQuangCaoTrangChu as $key => $value) {
+  ?>
+  <a href="<?php echo $value['Url']; ?>">
+    <img src="images/quangcao/Trang chu/<?php echo $value['UrlHinh']; ?>" class="img-fluid card" />
+  </a>
+  <?php
+  }
+  ?>
+</div>
+    <style type="text/css">
+      #quangcao img{
+        width: 350px;
+        height: 250px;
+        margin-top: 15px;
+      }
+    </style>
+
+<!--Adv-->
+
 </div>
 
 </div>

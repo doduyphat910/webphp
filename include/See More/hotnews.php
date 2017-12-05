@@ -9,6 +9,10 @@ else{
 }
 $from = ($page-1)*$newsinpage;
 $seeMoreHotNews_paging = $obj->seeMoreHotNews_paging($from ,$newsinpage);
+
+$idVT = 3;
+$showQuangCaoXemThem2 = $obj->showQuangCaoXemThem2($idVT);
+
 ?>
 <script type="text/javascript" src="js/jquery-3.2.1.min.js"></script>
 <script type="text/javascript" src="js/bootstrap.js"></script>
@@ -41,7 +45,25 @@ $seeMoreHotNews_paging = $obj->seeMoreHotNews_paging($from ,$newsinpage);
       }
       ?>
     </div>
-    <div class = "col-lg-4" style = "background-color: green">Ads</div>
+       <div class="col-lg-4" id="quangcao">
+      <?php
+      foreach ($showQuangCaoXemThem2 as $key => $value) {
+      ?>
+        <a href="<?php echo $value['Url']; ?>">
+        <img src="images/quangcao/Xem them 2/<?php echo $value['UrlHinh']; ?>" 
+        class="img-fluid card" />
+        </a>
+      <?php
+      }
+      ?>
+    </div>
+    <style type="text/css">
+      #quangcao img{
+        width: 350px;
+        height: 250px;
+        margin-top: 15px;
+      }
+    </style>
   </div>
 </div>
 

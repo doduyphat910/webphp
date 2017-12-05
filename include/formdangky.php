@@ -24,7 +24,7 @@ $errngaysinh="";
 $errdieukhoan="";
 if($dk != ""){
 
-    if (strlen($hoten)<6 ) $errhoten .=" Họ tên ít nhất phải 6 ký tự!<br>";
+    if (strlen($hoten)<6  || str_word_count($hoten) <2) $errhoten .=" Họ tên ít nhất phải 6 ký tự và ít nhất 2 từ!<br>";
     if ($nlpw!= $pw)    $errnlpw .="Mật khẩu và mật khẩu nhập lại không khớp. <br>";
     if(strlen($pw)<8)        $errpw .="Mật khẩu phải ít nhất 8 ký tự.<br>";
     if(strlen($tendangnhap)<5 || strlen($tendangnhap)>50)       

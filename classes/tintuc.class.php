@@ -157,5 +157,81 @@ class tintuc extends Db {
 		return $this->query( "INSERT INTO user VALUES (null, '$hoten', '$username', '$pw', '$dc', 
 			'$email', '$dt', '$gt', '$nsinh', '$ndk', '$idGroup')");
 	}
+
+	/* Relations News */
+
+	function RelationsNews ($idLT){
+		$arr = array(":idLT"=>"$idLT");
+		$sql = "SELECT * FROM tintuc WHERE idLT LIKE :idLT ORDER BY RAND() LIMIT 0,4 ";
+		return $this->query($sql, $arr);
+	}
+
+	/*Comment*/
+
+	function addComment($idTinTuc, $idUser, $NoiDung, $NgayDang, $AnHien){
+		$arr = array(":idTinTuc"=>"$idTinTuc", ":idUser"=>"$idUser",":NoiDung"=>"$NoiDung", 
+		":NgayDang"=>"$NgayDang", ":AnHien"=>"$AnHien" );
+		$sql = "INSERT INTO binhluan (idTinTuc, idUser, NoiDung, NgayDang, AnHien) VALUES (:idTinTuc, :idUser, :NoiDung, :NgayDang, :AnHien)";
+		return $this->query($sql, $arr);	
+	}
+
+	function showComment($idTinTuc){
+		$arr = array(":idTinTuc"=>"$idTinTuc");
+		$sql = "SELECT * FROM binhluan INNER JOIN user WHERE idTinTuc LIKE :idTinTuc AND AnHien = 1";
+		return $this->query($sql, $arr); 
+	}
+
+	/*Reply Comment*/ 
+
+	function addReply($idBL, $idUser, $NoiDung, $NgayDang, $AnHien){
+		$arr = array(":idBL"=>"$idBL", ":idUser"=>"$idUser",":NoiDung"=>"$NoiDung", 
+		":NgayDang"=>"$NgayDang", ":AnHien"=>"$AnHien" );
+		$sql = "INSERT INTO tlbinhluan (idBL, idUser, NoiDung, NgayDang, AnHien) VALUES (:idBL, :idUser, :NoiDung, :NgayDang, :AnHien)";
+		return $this->query($sql, $arr);
+	}
+
+	function showReply($idBL){
+		$arr = array(":idBL"=>"$idBL");
+		$sql = "SELECT * FROM tlbinhluan INNER JOIN user WHERE idBL LIKE :idBL AND AnHien = 1";
+		return $this->query($sql, $arr); 
+	}
+
+	/*Advertisement*/
+	function showQuangCaoTrangChu($idVT){
+		$arr = array(":idVT"=>"$idVT");
+		$sql = "SELECT * FROM quangcao WHERE idVT like :idVT AND CURRENT_DATE < NgayKetThuc  
+		ORDER BY RAND()LIMIT 0,5 ";
+		return $this->query($sql, $arr);
+	}
+	function showQuangCaoXemThem1($idVT){
+		$arr = array(":idVT"=>"$idVT");
+		$sql = "SELECT * FROM quangcao WHERE idVT like :idVT AND CURRENT_DATE < NgayKetThuc  
+		ORDER BY RAND()LIMIT 0,4 ";
+		return $this->query($sql, $arr);
+	}
+	function showQuangCaoXemThem2($idVT){
+		$arr = array(":idVT"=>"$idVT");
+		$sql = "SELECT * FROM quangcao WHERE idVT like :idVT AND CURRENT_DATE < NgayKetThuc  
+		ORDER BY RAND()LIMIT 0,4 ";
+		return $this->query($sql, $arr);
+	}
+	function showQuangCaoTheLoai($idVT){
+		$arr = array(":idVT"=>"$idVT");
+		$sql = "SELECT * FROM quangcao WHERE idVT like :idVT AND CURRENT_DATE < NgayKetThuc  
+		ORDER BY RAND()LIMIT 0,4 ";
+		return $this->query($sql, $arr);
+	}
+	function showQuangCaoLoaiTin($idVT){
+		$arr = array(":idVT"=>"$idVT");
+		$sql = "SELECT * FROM quangcao WHERE idVT like :idVT AND CURRENT_DATE < NgayKetThuc  
+		ORDER BY RAND()LIMIT 0,4 ";
+		return $this->query($sql, $arr);
+	}
+	function showQuangCaoTin($idVT){
+		$arr = array(":idVT"=>"$idVT");
+		$sql = "SELECT * FROM quangcao WHERE idVT like :idVT AND CURRENT_DATE < NgayKetThuc  
+		ORDER BY RAND()LIMIT 0,5 ";
+		return $this->query($sql, $arr);
+	}
 }
 ?>

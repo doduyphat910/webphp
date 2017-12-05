@@ -10,6 +10,9 @@ $from = ($page-1)*$newsinpage;
 $idTL = $_GET['idTL'];
 $obj = new tintuc();
 $getNewsFollowCategorys_paging = $obj->getNewsFollowCategorys_paging($idTL, $from, $newsinpage);
+
+$idVT = 4;
+$showQuangCaoTheLoai = $obj->showQuangCaoTheLoai($idVT);
 ?>
 <script type="text/javascript" src="js/jquery-3.2.1.min.js"></script>
 <script type="text/javascript" src="js/bootstrap.js"></script>
@@ -58,8 +61,30 @@ foreach ($breadCrumbTL as $key => $value) {
       }
       ?>
     </div>
-    <div class = "col-lg-4" style = "background-color: green">Ads</div>
+    <!--Adv-->
+     <div class = "col-lg-4" id="quangcao">
+       <?php
+      foreach ($showQuangCaoTheLoai as $key => $value) {
+      ?>
+      <a href="<?php echo $value['Url']; ?>">
+        <img src="images/quangcao/The loai/<?php echo $value['UrlHinh'];?>" 
+        class="img-fluid card" />  
+      </a>
+      <?php
+      }
+      ?>
+    </div>
+  <!--Adv-->
+  <style type="text/css">
+      #quangcao img{
+        width: 350px;
+        height: 250px;
+        margin-top: 15px;
+      }
+    </style>
+
   </div>
+
 </div>
 
 <div class="paging">
