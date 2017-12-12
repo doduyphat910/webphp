@@ -34,6 +34,18 @@ class congtacvien extends Db{
 		return $data[0];// chuyen mang array thanh data.
 		//return $this->query($sql,$arr);
 	}
+
+	/*Update tin*/
+	function showTinCapNhat($idTinTuc){
+		$arr = array(":idTinTuc"=>$idTinTuc);
+		$sql = "Select * from tintuc WHERE idTinTuc like :idTinTuc";
+		return $this->query($sql, $arr);
+	}
+	function updateTin($idTinTuc, $idLT, $TieuDe, $TomTat, $NoiDung, $Link){
+		$arr = array(":idTinTuc"=>$idTinTuc,":idLT"=>$idLT,":TieuDe"=>$TieuDe,":TomTat"=>$TomTat,":NoiDung"=>$NoiDung,":HinhAnh"=>$Link);
+		$sql = "UPDATE tintuc SET idLT =:idLT, TieuDe=:TieuDe, TomTat=:TomTat, NoiDung=:NoiDung, UrlHinh = :HinhAnh WHERE idTinTuc like :idTinTuc";
+		return $this->query($sql, $arr);
+	}
 	
 }
 ?>

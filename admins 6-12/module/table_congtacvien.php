@@ -17,7 +17,7 @@ $showcongtacvien = $congtacvien->showcongtacvien($chucvu);
 	  
 	  //print_r($row);
   ?>
-            <form action="index.php?table=congtacvien&thaotac=update" method="post" enctype="multipart/form-data" >
+            <form action="trangchu.php?table=congtacvien&thaotac=update" method="post" enctype="multipart/form-data" >
               <div class="modal-body">
        	<table align="center">
          <?php ?>
@@ -69,7 +69,7 @@ $showcongtacvien = $congtacvien->showcongtacvien($chucvu);
         </table> 
               </div>
              <div align="center">
-                <a class="btn btn-danger" href="index.php?table=congtacvien" role="button" >Hủy</a>
+                <a class="btn btn-danger" href="trangchu.php?table=congtacvien" role="button" >Hủy</a>
                <input class="btn btn-success" type="submit" value="Cập Nhật" name="submit">
              </div>
                </form>
@@ -84,7 +84,7 @@ $showcongtacvien = $congtacvien->showcongtacvien($chucvu);
                         <div class="panel-heading">
                              Bảng cộng tác viên
                         </div>
-                        <button type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#myModal">Thêm</button>
+                        <button type="button" class="btn btn-primary btn-lg glyphicon glyphicon-plus-sign" data-toggle="modal" data-target="#myModal"> Thêm</button>
                               <!-- Modal -->
                               <div class="modal fade" id="myModal" role="dialog">
                               	<div class="modal-dialog">
@@ -94,7 +94,7 @@ $showcongtacvien = $congtacvien->showcongtacvien($chucvu);
                               			<button type="button" class="close" data-dismiss="modal">&times;</button>
                               				<h4 class="modal-title">Thêm</h4>
                               			</div>
-                              			<form action="index.php?table=congtacvien&thaotac=them" method="post" enctype="multipart/form-data">
+                              			<form action="trangchu.php?table=congtacvien&thaotac=them" method="post" enctype="multipart/form-data">
                               		<div class="modal-body">
                               		
                               		<table align="center">
@@ -158,8 +158,8 @@ $showcongtacvien = $congtacvien->showcongtacvien($chucvu);
                                         <td><?php echo $value['NgayDangKi'];?></td>
                                         <td><?php echo $value['NgaySinh'];?></td>
                                         <td><?php echo $value['idGroup'];?></td>
-                                        <td><a class="btn btn-warning" href="index.php?table=congtacvien&thaotac=xoa&idUser=<?php echo $value['idUser'];?>">Xóa</a>
-                                        <a class="btn btn-primary" href="index.php?table=congtacvien&thaotac=sua&idUser=<?php echo $value['idUser'];?>">Sửa</td>
+                                        <td align="center"><a class="btn btn-warning glyphicon glyphicon-trash " href="trangchu.php?table=congtacvien&thaotac=xoa&idUser=<?php echo $value['idUser'];?>"> Xóa</a>
+                                        <a class="btn btn-primary glyphicon glyphicon-wrench" href="trangchu.php?table=congtacvien&thaotac=sua&idUser=<?php echo $value['idUser'];?>"> Sửa</td>
 										</tr>
                                         <?php
 										}
@@ -184,7 +184,7 @@ if(isset($_GET["thaotac"]) &&isset($_GET["idUser"]) )
 	  if(isset($deleteCTV))
 	  {
 		  ?>
-		  <script type="text/javascript">window.location='index.php?table=congtacvien'</script>
+		  <script type="text/javascript">window.location='trangchu.php?table=congtacvien'</script>
 		  <?php
 	  }
   }// xóa user
@@ -208,7 +208,7 @@ if(isset($_GET["thaotac"]) &&isset($_GET["idUser"]) )
 	$addCTV1=$congtacvien->addCTV( $HoTenUser,$UserName,$Password,$DiaChi,$Email,$DienThoai,$GioiTinh,$NgaySinh,$NgayDangKi,$idGroup);
 	  if(isset($addCTV1)){
 	?>
-	<script type="text/javascript">window.location='index.php?table=congtacvien'</script>
+	<script type="text/javascript">window.location='trangchu.php?table=congtacvien'</script>
 	<?php
 }
   }
@@ -234,7 +234,7 @@ if(isset($_GET["thaotac"]))
     $updateCTV1=$congtacvien->updateCTV($idUser,$HoTenUser,$UserName,$Password,$DiaChi,$Email,$DienThoai,$GioiTinh,$NgaySinh,$NgayDangKi,$idGroup);
 	  	  if(isset($updateCTV1)){
 	?>
-	<script type="text/javascript">window.location='index.php?table=congtacvien'</script>
+	<script type="text/javascript">window.location='trangchu.php?table=congtacvien'</script>
 	<?php
 }
 }

@@ -18,7 +18,7 @@ if(isset($_GET['thaotac']))
 	  
 	  //print_r($row);
   ?>
-            <form action="index.php?table=user&thaotac=update" method="post" enctype="multipart/form-data" >
+            <form action="trangchu.php?table=user&thaotac=update" method="post" enctype="multipart/form-data" >
               <div class="modal-body">
        	<table align="center">
          <?php ?>
@@ -70,7 +70,7 @@ if(isset($_GET['thaotac']))
         </table> 
               </div>
              <div align="center">
-                <a class="btn btn-danger" href="index.php?table=user" role="button" >Hủy</a>
+                <a class="btn btn-danger" href="trangchu.php?table=user" role="button" >Hủy</a>
                <input class="btn btn-success" type="submit" value="Cập Nhật" name="submit">
              </div>
                </form>
@@ -84,7 +84,7 @@ if(isset($_GET['thaotac']))
                         <div class="panel-heading">
                              Bảng user
                         </div>
-                        <button type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#myModal">Thêm</button>
+                        <button type="button" class="btn btn-primary btn-lg glyphicon glyphicon-plus-sign" data-toggle="modal" data-target="#myModal"> Thêm</button>
                               <!-- Modal -->
                               <div class="modal fade" id="myModal" role="dialog">
                               	<div class="modal-dialog">
@@ -94,7 +94,7 @@ if(isset($_GET['thaotac']))
                               			<button type="button" class="close" data-dismiss="modal">&times;</button>
                               				<h4 class="modal-title">Thêm</h4>
                               			</div>
-                              			<form action="index.php?table=user&thaotac=them" method="post" enctype="multipart/form-data">
+                              			<form action="trangchu.php?table=user&thaotac=them" method="post" enctype="multipart/form-data">
                               		<div class="modal-body">
                               		
                               		<table align="center">
@@ -157,8 +157,8 @@ if(isset($_GET['thaotac']))
                                         <td><?php echo $value['NgayDangKi'];?></td>
                                         <td><?php echo $value['NgaySinh'];?></td>
                                          <td><?php echo $value['idGroup'];?></td>
-                                         <td><a class="btn btn-warning" href="index.php?table=user&thaotac=xoa&idUser=<?php echo $value['idUser'];?>">Xóa</a>
-                                        <a class="btn btn-primary" href="index.php?table=user&thaotac=sua&idUser=<?php echo $value['idUser'];?>">Sửa</td>
+                                         <td align="center"><a class="btn btn-warning glyphicon glyphicon-trash" href="trangchu.php?table=user&thaotac=xoa&idUser=<?php echo $value['idUser'];?>"> Xóa</a>
+                                        <a class="btn btn-primary glyphicon glyphicon-wrench" href="trangchu.php?table=user&thaotac=sua&idUser=<?php echo $value['idUser'];?>"> Sửa</td>
 										</tr>
                                         <?php
 										}
@@ -188,7 +188,7 @@ if(isset($_GET["thaotac"]) &&isset($_GET["idUser"]) )
 	  if(isset($deleteuser))
 	  {
 		  ?>
-		  <script type="text/javascript">window.location='index.php?table=user'</script>
+		  <script type="text/javascript">window.location='trangchu.php?table=user'</script>
 		  <?php
 	  }
   }// xóa user
@@ -216,7 +216,7 @@ if(isset($_GET["thaotac"]) &&isset($_GET["idUser"]) )
 	$addUser1 =$user->addUser( $HoTenUser,$UserName,$Password,$DiaChi,$Email,$DienThoai,$GioiTinh,$NgaySinh,$NgayDangKi,$idGroup);
 	  if(isset($addUser1)){
 	?>
-	<script type="text/javascript">window.location='index.php?table=user'</script>
+	<script type="text/javascript">window.location='trangchu.php?table=user'</script>
 	<?php
 }
   }
@@ -242,7 +242,7 @@ if(isset($_GET["thaotac"]))
     $updateUser1=$user->updateUser($idUser,$HoTenUser,$UserName,$Password,$DiaChi,$Email,$DienThoai,$GioiTinh,$NgaySinh,$NgayDangKi,$idGroup);
 	  	  if(isset($updateUser1)){
 	?>
-	<script type="text/javascript">window.location='index.php?table=user'</script>
+	<script type="text/javascript">window.location='trangchu.php?table=user'</script>
 	<?php
 }
 }

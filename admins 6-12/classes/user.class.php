@@ -33,5 +33,12 @@ class user extends Db{
 		$data= $this->query($sql,$arr);
 		return $data[0];// chuyen mang array thanh data.
 	}
+
+	/*Login*/
+	function Login ($un, $pw){
+            $arr = array(":UN"=>"$un", ":PW"=>"$pw" );
+            $sql = "SELECT * FROM User WHERE UserName like :UN AND Password like :PW";
+            return $this->query($sql, $arr);
+        }
 }
 ?>
