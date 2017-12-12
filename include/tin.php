@@ -1,3 +1,9 @@
+<?php
+$cookie_name = "user";
+$cookie_value = "Số lần xem tin";
+setcookie($cookie_name, $cookie_value, time() + 900);
+?>
+
 <script type="text/javascript" src="js/jquery-3.2.1.min.js"></script>
 <?php
 $idTinTuc = $_GET['idTinTuc'];
@@ -12,6 +18,14 @@ $showComment = $obj->showComment($idTinTuc);
 
 $idVT=6;
 $showQuangCaoTin = $obj->showQuangCaoTin($idVT);
+?>
+
+
+
+<?php
+if(!isset($_COOKIE[$cookie_name])) {
+      $obj->updateCount($idTinTuc);
+}
 ?>
 
 <?php
@@ -77,7 +91,7 @@ foreach ($get1News as $key => $value) {
   ?>
   <div class="container">         
     <div class="row container box text-center canhgiua">
-     <div class="col-md-8">
+     <div class="col-md-8" style="background-color: white">
       <div class="tintuc"> <strong style="font-size:30px;"><?php echo $value['TieuDe'];?></strong>
 
         <p style="font-weight:bold" class="text-justify"><?php echo $value['TomTat']; ?></p>

@@ -1,4 +1,4 @@
-<?php
+  <?php
 if(isset($_GET['trang'])){
   $page = $_GET['trang'];
   settype($page, "int");
@@ -21,7 +21,7 @@ $showQuangCaoXemThem1 = $obj->showQuangCaoXemThem1($idVT);
   <!--Content-->
 
   <div class = "row">
-    <div class = "col-lg-8">
+    <div class = "col-lg-8" style="background-color: white">
       <hr />
       <?php
       foreach ($seeMoreNews_paging as $key => $value) {
@@ -87,7 +87,7 @@ $showQuangCaoXemThem1 = $obj->showQuangCaoXemThem1($idVT);
   height: 30px;
   margin-left: 250px;
   margin-bottom: 10px;
-  margin-top: 1px;
+  margin-top: 15px;
   text-align: center;
 }
 .paging a{

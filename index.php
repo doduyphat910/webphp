@@ -23,6 +23,12 @@ session_start();
  	case 'xemthem2':
  		include 'xemthem2.php';
  		break;
+ 	case 'profile':
+ 		include 'profile.php';
+ 		break;
+ 	case 'doimk':
+ 		include 'doimk.php';
+ 		break;
  	default:
  		include 'trangchu.php';
  		break;

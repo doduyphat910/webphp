@@ -1,4 +1,6 @@
-
+ 
+<script src="css/css2/js/bootstrap.min.js"  ></script>
+    
 <?php
 $dk = postIndex("dk");
 $hoten = postIndex("hoten");
@@ -28,8 +30,8 @@ if($dk != ""){
     if ($nlpw!= $pw)    $errnlpw .="Mật khẩu và mật khẩu nhập lại không khớp. <br>";
     if(strlen($pw)<8)        $errpw .="Mật khẩu phải ít nhất 8 ký tự.<br>";
     if(strlen($tendangnhap)<5 || strlen($tendangnhap)>50)       
-       $errtendangnhap .="Tên đăng nhập không lớn hơn 50 kí tự và nhỏ 5 kí tự.<br>";
-   if (strlen($diachi)<6 ) $errdiachi .=" Địa chỉ ít nhất phải 6 ký tự!<br>";
+     $errtendangnhap .="Tên đăng nhập không lớn hơn 50 kí tự và nhỏ 5 kí tự.<br>";
+ if (strlen($diachi)<6 ) $errdiachi .=" Địa chỉ ít nhất phải 6 ký tự!<br>";
 
 }
 
@@ -83,8 +85,8 @@ function checkPhoneNumber($string)
 function checkEmail($string)
 {  
     if (preg_match("/^[a-zA-Z0-9._-]+@[a-zA-Z0-9-]+\.[a-zA-Z.]{2,5}$/", $string))
-       return true;
-   return false;   
+     return true;
+ return false;   
 }
 
 function checkDieuKhoan(){
@@ -269,11 +271,35 @@ if(checkDieuKhoan() == false)
                             </div>
                             <div class="checkbox">
                                 <label class="small">
-                                    <input type="checkbox" name="cboDieuKhoan" 
-                                    value="dieukhoan">
-                                    Tôi đã đọc và đồng ý với các <a href="#">điều khoản của trang web
-                                    </a>
+                                    <input type="checkbox" name="cboDieuKhoan" value="dieukhoan">
+                                    Tôi đã đọc và đồng ý với các   <a data-toggle="modal" data-target="#myModal" style="text-decoration: none;">Điều khoản</a>
+  <!-- Modal -->
+<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Điều khoản webtintuc247.tk</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <div>1. Hình đại diện và tên đăng ký ko phản cảm, ko có các thông tin bao gồm: link web, số điện thoại, email hoặc tên riêng..mang tính quảng cáo, thương mại cho cá nhân, tổ chức hoặc mang nội dung gây hại cho các tổ chức, cá nhân khác.</div>
+        <div>2. Các hoạt động của User ko vi phạm pháp luật và các qui định của Nhà nước Cộng hòa XHCN Việt Nam</div>
+        <div>3. Nội dung bình luận ko chia sẻ link, số điện thoại, email hoặc quảng cáo cho bất cứ cá nhân, tổ chức nào</div>
+        <div>4. Nội dung bình luận không vi phạm đạo đức, pháp luật, thuần phong mỹ tục Việt Nam</div>
+        <div>5. Nội dung bình luận không vu cáo, bôi nhọ, miệt thị, xuyên tạc, gây hại cho tổ chức, cá nhân</div>
+        <div>6. Nội dung bình luận không chửi bới, thô tục</div>
+        <div>7. Khi phạm qui, tài khoản sẽ bị khóa tạm thời.</div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Đóng</button>
+      </div>
+    </div>
+  </div>
+</div>
                                 </label>
+
                             </div>
                             <?php
                             if($errdieukhoan != ""){
@@ -304,14 +330,14 @@ if(checkDieuKhoan() == false)
         $pw= md5($pw);
         $Register = $obj->Register($hoten, $tendangnhap, $pw, $diachi, $email, $sdt, $gt, $ngaysinh, $time, '1');
     }
-?>
-
-<?php
-if(isset($Register)){
     ?>
-    <script type="text/javascript">
-        alert("Bạn đã đăng kí thành công");
-    </script>
+
     <?php
-}
-?>
+    if(isset($Register)){
+        ?>
+        <script type="text/javascript">
+            alert("Bạn đã đăng kí thành công");
+        </script>
+        <?php
+    }
+    ?>

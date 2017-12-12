@@ -6,7 +6,7 @@
        	<div class="col-sm-6">
        		<div class="row">
        			<div class="col-sm-9 text-right">
-       				<a class="nav-link" href="#"><h6>Xin chào, <?php echo $_SESSION['HoTenUser']; ?></h6></a>
+       				<a class="nav-link" href="index.php?p=profile"><h6>Xin chào, <?php echo $_SESSION['HoTenUser']; ?></h6></a>
             </div>
             <div class="col-sm-3">
               <form action="" method="post" accept-charset="utf-8">

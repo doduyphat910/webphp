@@ -233,5 +233,44 @@ class tintuc extends Db {
 		ORDER BY RAND()LIMIT 0,5 ";
 		return $this->query($sql, $arr);
 	}
+
+	/*User information*/
+	function showInfor($idUser){
+		$arr = array(":idUser"=>"$idUser");
+		$sql = "SELECT * FROM user WHERE idUser like :idUser";
+		return $this->query($sql, $arr);
+	}
+	function updateInfor($idUser, $hoten, $diachi, $sdt, $email, $ngaysinh, $gioitinh){
+		$arr = array(":idUser"=>"$idUser",":hoten"=>"$hoten", ":diachi"=>"$diachi", ":sdt"=>"$sdt", 
+			":email"=>"$email", ":ngaysinh"=>"$ngaysinh", ":gioitinh"=>"$gioitinh" );
+		$sql = "UPDATE user set HoTenUser = :hoten, DiaChi = :diachi, DienThoai= :sdt, Email = :email, 
+		NgaySinh=:ngaysinh, GioiTinh=:gioitinh WHERE idUser like :idUser";
+		return $this->query($sql, $arr);
+	}
+
+	/*Forgot password*/
+	function getEmail($tendangnhap){
+		$arr = array(":tendangnhap"=>"$tendangnhap");
+		$sql = "SELECT * FROM user WHERE UserName like :tendangnhap";
+		return $this->query($sql, $arr);
+	}
+	/*Get All User*/
+	function getAllUser(){
+		return $this->query("SELECT * FROM user");
+	}
+
+	/*Update Password user*/
+	function updatePWUser($idUser, $pw){
+		$arr = array(":idUser"=>"$idUser", ":pw"=>"$pw");
+		$sql = "UPDATE user set Password = :pw WHERE idUser LIKE :idUser";
+		return $this->query($sql, $arr);
+	}
+
+	/*update count news*/
+	function updateCount($idTinTuc){
+		$arr = array(":idTinTuc"=>"$idTinTuc");
+		$sql = "UPDATE tintuc SET SoLanXem=SoLanXem+1 WHERE idTinTuc like :idTinTuc";
+		return $this->query($sql, $arr);
+	}
 }
 ?>

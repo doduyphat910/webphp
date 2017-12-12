@@ -8,7 +8,7 @@ $showQuangCaoTrangChu = $obj->showQuangCaoTrangChu($idVT);
 <div class="container">   
 <!--Content-->
 <div class = "row">
- <div class = "col-lg-8">
+ <div class = "col-lg-8" style="background-color: white">
    <hr />
    <h5 class="theloai">Tin mới nhất</h5>
    <br>
@@ -48,7 +48,7 @@ $showQuangCaoTrangChu = $obj->showQuangCaoTrangChu($idVT);
 $get3HotNews = $obj->get3HotNews();
 foreach ($get3HotNews as $key => $value) {
 ?>
-<div class = "row hinhgiua">
+<div class = "row hinhgiua" >
  <div class = "col-lg-4 thehinhgiua">
    <a href="index.php?p=tin&idTinTuc=<?php echo $value['idTinTuc']; ?>"><img src="images/<?php echo $value['UrlHinh']; ?>" class="img-fluid" /></a>
  </div>

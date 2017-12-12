@@ -41,7 +41,7 @@ foreach ($breadCrumbLT as $key => $value) {
 ?>
   <!--Content-->
   <div class = "row">
-    <div class = "col-lg-8">
+    <div class = "col-lg-8" style="background-color: white">
       <hr />
       <?php
       foreach ($getNewsByType_paging as $key => $value) {
@@ -87,7 +87,7 @@ foreach ($breadCrumbLT as $key => $value) {
   </div>
 </div>
 
-<div class="paging">
+<div class="paging" style="margin-top: 15px">
   <?php
   $getNewsByType = $obj->getNewsByType($idLT);
   $count = count($getNewsByType);

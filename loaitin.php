@@ -2,6 +2,8 @@
  <script type="text/javascript" src="js/bootstrap.js"></script>
  <link rel="stylesheet" type="text/css" href="css/bootstrap.css"/>
  <link rel="stylesheet" type="text/css" href="css/style.css"/>
+
+ <body style="background-color: whitesmoke">
  <?php
  if(isset($_SESSION['idUser'])){
 	include("include/welcome.php");	
@@ -16,3 +18,4 @@ include("include/slide.php");
 include("include/loaitin.php");
 include("include/footer.php");
  ?>
+</body>

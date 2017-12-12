@@ -23,7 +23,7 @@ $showQuangCaoXemThem2 = $obj->showQuangCaoXemThem2($idVT);
   <!--Content-->
 
   <div class = "row">
-    <div class = "col-lg-8">
+    <div class = "col-lg-8" style="background-color: white">
       <hr />
       <?php
       foreach ($seeMoreHotNews_paging as $key => $value) {
@@ -67,7 +67,7 @@ $showQuangCaoXemThem2 = $obj->showQuangCaoXemThem2($idVT);
   </div>
 </div>
 
-<div class="paging">
+<div class="paging" style="margin-top: 15px">
   <?php
     $seeMoreHotNews = $obj->seeMoreHotNews();
     $count = count($seeMoreHotNews);
